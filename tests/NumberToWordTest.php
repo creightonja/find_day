@@ -15,7 +15,7 @@
             $result = $test_NumberValues->getWord($input);
 
             //assert
-            $this->assertEquals("one ", $result);
+            $this->assertEquals(" one ", $result);
         }
 
         function test_NumberToWord_tens() {
@@ -39,7 +39,7 @@
             $result = $test_NumberValues->getWord($input);
 
             //assert
-            $this->assertEquals("three hundred thirty three ", $result);
+            $this->assertEquals(" three hundred thirty three ", $result);
         }
 
         function test_NumberToWord_Thousands() {
@@ -51,7 +51,19 @@
             $result = $test_NumberValues->getWord($input);
 
             //assert
-            $this->assertEquals("three thousand three hundred thirty three ", $result);
+            $this->assertEquals(" one million two hundred thirty four thousand five hundred sixty seven ", $result);
+        }
+
+        function test_NumberToWord_thousands_tens() {
+            //arrange
+            $test_NumberValues = new NumberToWord;
+            $input = "123456789";
+
+            //act
+            $result = $test_NumberValues->getWord($input);
+
+            //assert
+            $this->assertEquals(" one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine ", $result);
         }
 
 

@@ -25,18 +25,20 @@
 
             foreach($chunked_number as $thousands) { //[1,1,1],[2,2,2],[1,2]
                 $ones_counter = 0;
-                $output = $array_thousands[$thousands_counter] . " " . $output;
+                $output = " " . $array_thousands[$thousands_counter] . $output;
                 $thousands_counter++;
 
                 foreach($thousands as $ones){
-                    if ( ($ten_check > 9) && ($ten_check < 20)) {//
+                    if (($ten_check > 9) && ($ten_check < 20)) {//only when ten check is between 10 and 19 for twlve etc...
 
+                        if (($ones_counter > 2) && ($thousands_counter == 0)){//only if we are in the 10s
                         $output = $array_tens[$ten_check];
+                        }
                     }
                     else
                     {
 
-                    $output = $array_ones[$ones_counter][$ones] . " " . $output;
+                    $output = " " . $array_ones[$ones_counter][$ones] . $output;
                     $ones_counter++;
                     }//End If/Else Statement
                 }//ends foreach
